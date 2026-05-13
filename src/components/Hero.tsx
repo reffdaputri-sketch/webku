@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Download, Github, Linkedin, MapPin } from 'lucide-react';
+import { ArrowRight, Download, MapPin } from 'lucide-react';
 import { ProfileSettings } from '@/lib/supabase';
 
 export default function Hero({ settings }: { settings: ProfileSettings }) {
