@@ -468,6 +468,37 @@ body::before {
   transform: scale(1.06);
 }
 
+.project-card:hover .btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-outline-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: hsl(160, 70%, 55%);
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-outline-wa:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.6);
+  color: hsl(160, 75%, 60%);
+}
+
+.btn-outline-wa:active {
+  transform: scale(0.97);
+}
+
 /* ══════════════════════════════════════
    ADMIN SIDEBAR
 ══════════════════════════════════════ */

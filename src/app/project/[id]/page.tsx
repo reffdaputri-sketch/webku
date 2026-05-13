@@ -112,31 +112,28 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 </p>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '16px' }}>
                 {/* Tombol Link Proyek */}
                 <a
                   href={project.link !== '#' ? project.link : 'https://github.com'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
+                  style={{ 
+                    borderRadius: '10px', /* Kurangi kelengkungan agar lebih tegas */
+                    width: '100%', 
+                    justifyContent: 'center' 
+                  }}
                 >
                   <ExternalLink size={18} /> Kunjungi Tautan Proyek
                 </a>
 
-                {/* Tombol WA — link statis murni, jalan di semua HP */}
+                {/* Tombol WA — gaya outline agar berbeda dengan panel kanan */}
                 <a
                   href={`https://api.whatsapp.com/send?phone=6285157578692&text=${encodeURIComponent(`Halo FLaz.Dev, saya tertarik ingin memesan atau bertanya seputar proyek "${project.title}". Boleh saya tahu info harga dan estimasi pengerjaannya?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                    background: 'linear-gradient(135deg, hsl(160,75%,42%), hsl(160,85%,32%))',
-                    color: '#fff', textDecoration: 'none',
-                    padding: '12px 20px', borderRadius: '10px',
-                    fontWeight: 700, fontSize: '0.9rem',
-                    boxShadow: '0 6px 20px rgba(16,185,129,0.3)',
-                    width: '100%',
-                  }}
+                  className="btn-outline-wa"
                 >
                   <MessageCircle size={18} /> Pesan / Tanya via WhatsApp
                 </a>
