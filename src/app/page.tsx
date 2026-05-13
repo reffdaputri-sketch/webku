@@ -1,66 +1,75 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import React from 'react';
+import { 
+  getProjects, 
+  getNews, 
+  getServices, 
+  getPromos, 
+  getProfileSettings,
+  hasSupabaseConfig 
+} from '@/lib/supabase';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import ClientQuestionForm from '@/components/ClientQuestionForm';
+import PromoSlider from '@/components/PromoSlider';
+import Services from '@/components/Services';
+import ProjectCatalog from '@/components/ProjectCatalog';
+import NewsSection from '@/components/NewsSection';
+import ToolsSkills from '@/components/ToolsSkills';
+import Footer from '@/components/Footer';
 
-export default function Home() {
+// Let's force dynamic or revalidation to pick up fresh items cleanly
+export const revalidate = 0;
+
+export default async function Home() {
+  // Fetch data concurrently for high performance Server-Side Rendering
+  const [projects, news, services, promos, settings] = await Promise.all([
+    getProjects(),
+    getNews(),
+    getServices(),
+    getPromos(),
+    getProfileSettings(),
+  ]);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Configuration Status Banner */}
+      {!hasSupabaseConfig && (
+        <div style={{
+          background: 'rgba(245, 158, 11, 0.08)',
+          borderBottom: '1px solid rgba(245, 158, 11, 0.15)',
+          padding: '9px 24px',
+          textAlign: 'center',
+          fontSize: '0.8rem',
+          color: 'hsl(43, 96%, 70%)',
+          position: 'relative',
+          zIndex: 200,
+          backdropFilter: 'blur(10px)',
+        }}>
+          ⚡ <strong>Mode Demo Aktif:</strong> Kredensial Supabase belum terdeteksi di <code style={{ background: 'rgba(245,158,11,0.15)', padding: '1px 6px', borderRadius: '4px', fontFamily: 'monospace' }}>.env.local</code>. Data demo ditampilkan. Uji fitur di{' '}
+          <a href="/admin" style={{ textDecoration: 'underline', color: 'hsl(217, 91%, 65%)', fontWeight: 700 }}>Admin Panel</a>.
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      )}
+
+      {/* Main Nav */}
+      <Navbar />
+
+      {/* Sequentially ordered sections optimized for WOW factor */}
+      <Hero settings={settings} />
+
+      {/* Seksi Formulir Pertanyaan Klien (Langsung di bawah Hero) */}
+      <ClientQuestionForm />
+      
+      <PromoSlider promos={promos} />
+      
+      <Services services={services} />
+      
+      <ProjectCatalog projects={projects} />
+      
+      <ToolsSkills />
+
+      <NewsSection news={news} />
+      
+      <Footer settings={settings} />
+    </>
   );
 }
