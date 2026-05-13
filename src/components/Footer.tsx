@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Terminal, Github, Linkedin, ArrowUp, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Terminal, ArrowUp, ExternalLink } from 'lucide-react';
 import { ProfileSettings } from '@/lib/supabase';
 
 const quickLinks = [
