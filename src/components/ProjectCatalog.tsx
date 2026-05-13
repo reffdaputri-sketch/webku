@@ -169,15 +169,31 @@ export default function ProjectCatalog({ projects }: { projects: Project[] }) {
                 </h3>
 
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '14px', fontStyle: 'italic' }}>
-                  by <span style={{ color: 'var(--text-muted)' }}>infinitietech</span> &nbsp;·&nbsp; {project.category}
+                  by <span style={{ color: 'var(--text-muted)' }}>FLaz.Dev</span> &nbsp;·&nbsp; {project.category}
                 </div>
+
+                {/* Description */}
+                <p style={{
+                  fontSize: '0.88rem', color: 'var(--text-muted)',
+                  lineHeight: 1.6, marginBottom: '16px', flexGrow: 1,
+                  display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                  textAlign: 'justify'
+                }}>
+                  {project.description}
+                </p>
 
                 {/* Price */}
                 <div style={{
                   fontSize: '1.45rem', fontWeight: 800,
                   color: 'var(--text-main)', marginBottom: '8px', letterSpacing: '-0.02em',
                 }}>
-                  {prices[idx % prices.length]}
+                  {(() => {
+                    const price = project.price || '';
+                    if (!price) return 'Rp -';
+                    const numStr = price.replace(/[^0-9]/g, '');
+                    if (!numStr) return price;
+                    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(parseInt(numStr, 10));
+                  })()}
                 </div>
 
                 {/* Stars & Sales */}
@@ -260,7 +276,7 @@ export default function ProjectCatalog({ projects }: { projects: Project[] }) {
                       e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.25)';
                     }}
                   >
-                    Live Preview <ExternalLink size={13} />
+                    Lihat Project <ExternalLink size={13} />
                   </Link>
                 </div>
               </div>

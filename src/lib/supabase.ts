@@ -18,6 +18,7 @@ export interface Project {
   link: string;
   tags: string[];
   category: string;
+  price: string;
   created_at: string;
 }
 
@@ -68,6 +69,7 @@ let mockProjects: Project[] = [
     link: 'https://github.com',
     tags: ['Next.js', 'Laravel', 'Tailwind CSS', 'Supabase'],
     category: 'Web App',
+    price: 'Rp 15.000.000',
     created_at: '2026-05-01'
   },
   {
@@ -78,6 +80,7 @@ let mockProjects: Project[] = [
     link: 'https://github.com',
     tags: ['Flutter', 'Dart', 'Firebase', 'REST API'],
     category: 'Mobile App',
+    price: 'Rp 25.000.000',
     created_at: '2026-04-15'
   },
   {
@@ -88,6 +91,7 @@ let mockProjects: Project[] = [
     link: 'https://github.com',
     tags: ['React', 'TypeScript', 'Node.js'],
     category: 'UI/UX Design',
+    price: 'Rp 8.000.000',
     created_at: '2026-03-20'
   },
   {
@@ -98,6 +102,7 @@ let mockProjects: Project[] = [
     link: 'https://github.com',
     tags: ['Next.js', 'GraphQL', 'PostgreSQL'],
     category: 'Web App',
+    price: 'Rp 18.000.000',
     created_at: '2026-02-10'
   }
 ];
@@ -285,6 +290,7 @@ export async function saveProject(project: Omit<Project, 'id' | 'created_at'> & 
     link: project.link,
     tags: project.tags,
     category: project.category,
+    price: project.price,
     created_at: isNew ? new Date().toISOString().split('T')[0] : (mockProjects.find(p => p.id === project.id)?.created_at || new Date().toISOString().split('T')[0])
   };
 

@@ -19,6 +19,7 @@ export default function AdminProjects() {
     image: '',
     link: '',
     category: 'Web App',
+    price: '',
     tagsString: ''
   });
 
@@ -41,6 +42,7 @@ export default function AdminProjects() {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       link: 'https://github.com',
       category: 'Web App',
+      price: 'Rp 10.000.000',
       tagsString: 'Next.js, React'
     });
     setIsEditing(true);
@@ -54,6 +56,7 @@ export default function AdminProjects() {
       image: proj.image,
       link: proj.link,
       category: proj.category,
+      price: proj.price || '',
       tagsString: proj.tags.join(', ')
     });
     setIsEditing(true);
@@ -79,6 +82,7 @@ export default function AdminProjects() {
           image: proj.image,
           link: proj.link,
           category: proj.category,
+          price: proj.price,
           tags: proj.tags
         });
         await fetchItems();
@@ -121,6 +125,7 @@ export default function AdminProjects() {
         image: formData.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
         link: formData.link || '#',
         category: formData.category,
+        price: formData.price || 'Sesuai Kesepakatan',
         tags: tagsArray
       });
       setIsEditing(false);
@@ -159,7 +164,7 @@ export default function AdminProjects() {
           </div>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div className="grid-2">
+            <div className="grid-3">
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: '8px', fontWeight: 600 }}>Judul Proyek</label>
                 <input 
@@ -185,6 +190,17 @@ export default function AdminProjects() {
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
+              </div>
+
+              <div>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: '8px', fontWeight: 600 }}>Harga Proyek</label>
+                <input 
+                  type="text" 
+                  className="input-premium" 
+                  placeholder="Contoh: Rp 15.000.000" 
+                  value={formData.price} 
+                  onChange={e => setFormData({...formData, price: e.target.value})}
+                />
               </div>
             </div>
 
@@ -294,9 +310,10 @@ export default function AdminProjects() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                     <span className="badge" style={{ padding: '2px 8px', fontSize: '0.65rem' }}>{proj.category}</span>
+                    {proj.price && <span className="badge" style={{ padding: '2px 8px', fontSize: '0.65rem', background: 'rgba(16, 185, 129, 0.1)', color: 'hsl(160, 70%, 55%)' }}>{proj.price}</span>}
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>{proj.title}</h3>
                   </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', whiteSpace: 'pre-line', lineHeight: 1.6 }}>
                     {proj.description}
                   </p>
                 </div>

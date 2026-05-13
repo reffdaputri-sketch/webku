@@ -56,6 +56,7 @@ export async function saveProjectServer(project: Omit<Project, 'id' | 'created_a
     link: project.link,
     tags: project.tags,
     category: project.category,
+    price: project.price,
     created_at: isNew ? new Date().toISOString().split('T')[0] : new Date().toISOString().split('T')[0] // simplified for fallback
   };
 

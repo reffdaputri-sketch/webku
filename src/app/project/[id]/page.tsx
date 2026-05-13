@@ -68,24 +68,22 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
           {/* Main Image Banner */}
           <div style={{
             width: '100%',
-            aspectRatio: '16/9',
-            position: 'relative',
-            overflow: 'hidden',
             marginBottom: '40px',
             borderRadius: '16px',
             border: '1px solid var(--border-color)',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            background: 'var(--bg-surface)',
+            padding: '8px'
           }}>
             <img 
               src={project.image} 
               alt={project.title}
               style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
                 width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+                height: 'auto',
+                display: 'block',
+                borderRadius: '12px',
+                objectFit: 'contain'
               }}
             />
           </div>
@@ -98,7 +96,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 <h2 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px', color: 'var(--accent-cyan)' }}>
                   Ringkasan Eksekutif
                 </h2>
-                <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+                <p style={{ color: 'var(--text-main)', fontSize: '1.05rem', lineHeight: 1.7, textAlign: 'justify', whiteSpace: 'pre-line' }}>
                   {project.description}
                 </p>
               </div>
@@ -107,10 +105,23 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '12px' }}>
                   Tantangan & Solusi
                 </h3>
-                <p style={{ color: 'var(--text-muted)' }}>
+                <p style={{ color: 'var(--text-muted)', textAlign: 'justify', lineHeight: 1.7 }}>
                   Setiap sistem berskala tinggi membutuhkan strategi arsitektur yang cermat. Pada proyek ini, optimasi waktu muat, pemrosesan status waktu-nyata, serta keandalan antarmuka pengguna di berbagai kondisi jaringan menjadi fokus utama pengembangan, menghasilkan produk akhir yang stabil dan efisien.
                 </p>
               </div>
+
+              {project.price && (
+                <div style={{ padding: '16px', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '4px solid hsl(160, 70%, 50%)', borderRadius: '4px' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '4px', color: 'hsl(160, 70%, 60%)' }}>Estimasi Biaya</h3>
+                  <p style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)' }}>
+                    {(() => {
+                      const numStr = project.price.replace(/[^0-9]/g, '');
+                      if (!numStr) return project.price;
+                      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(parseInt(numStr, 10));
+                    })()}
+                  </p>
+                </div>
+              )}
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '16px' }}>
                 {/* Tombol Link Proyek */}
