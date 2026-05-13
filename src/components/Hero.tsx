@@ -245,88 +245,20 @@ export default function Hero({ settings }: { settings: ProfileSettings }) {
             justifyContent: 'center',
             minHeight: 'clamp(320px, 50vw, 480px)',
           }}>
-            {/* Rotating outer ring */}
-            <div style={{
-              position: 'absolute',
-              width: 'clamp(280px, 42vw, 440px)', height: 'clamp(280px, 42vw, 440px)',
-              borderRadius: '50%',
-              border: '1px solid rgba(99, 102, 241, 0.12)',
-              animation: 'rotateSlow 30s linear infinite',
-            }}>
-              {/* Dot on ring */}
-              <div style={{
-                position: 'absolute', top: '-4px', left: '50%',
-                width: '8px', height: '8px',
-                background: 'hsl(217, 91%, 60%)',
-                borderRadius: '50%',
-                boxShadow: '0 0 12px rgba(59, 130, 246, 0.8)',
-                transform: 'translateX(-50%)',
-              }} />
-            </div>
-
-            {/* Main image card */}
-            <div style={{
-              width: '78%', position: 'relative', zIndex: 2,
-              marginLeft: 'auto',
-              borderRadius: '16px', overflow: 'hidden',
-              boxShadow: '0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.07)',
-            }}>
-              <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-                alt="Development Workspace"
-                style={{ width: '100%', height: 'auto', display: 'block', aspectRatio: '4/3', objectFit: 'cover' }}
+            {/* ── MASKOT HERO ── */}
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center' }}>
+              <img 
+                src="/mascot/tablet.png" 
+                alt="FLaz.Dev Mascot"
+                style={{
+                  width: '100%',
+                  maxWidth: '500px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))',
+                  animation: 'float 6s ease-in-out infinite',
+                }}
               />
-              {/* Image overlay */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%)',
-              }} />
-            </div>
-
-            {/* Floating badge card */}
-            <div style={{
-              position: 'absolute', bottom: '8%', left: '0',
-              background: 'rgba(17, 20, 29, 0.92)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '12px',
-              padding: '14px 18px',
-              zIndex: 3,
-              display: 'flex', alignItems: 'center', gap: '12px',
-              boxShadow: '0 16px 40px rgba(0,0,0,0.5)',
-              animation: 'float 5s ease-in-out infinite',
-            }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '8px',
-                background: 'linear-gradient(135deg, hsl(217, 91%, 60%), hsl(262, 83%, 68%))',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                flexShrink: 0,
-              }}>
-                <span style={{ fontSize: '1rem' }}>⚡</span>
-              </div>
-              <div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginBottom: '1px' }}>Proyek Terbaru</div>
-                <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-main)' }}>Selesai On-Time</div>
-              </div>
-            </div>
-
-            {/* Overlap small image */}
-            <div style={{
-              position: 'absolute', top: '5%', right: '-2%',
-              width: '42%',
-              borderRadius: '12px', overflow: 'hidden',
-              boxShadow: '0 20px 48px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06)',
-              zIndex: 4,
-            }}>
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80"
-                alt="Code"
-                style={{ width: '100%', display: 'block', aspectRatio: '1/1', objectFit: 'cover' }}
-              />
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'rgba(17, 20, 29, 0.3)',
-              }} />
             </div>
           </div>
         </div>

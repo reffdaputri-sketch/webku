@@ -12,25 +12,42 @@ export default function ClientQuestionForm() {
   return (
     <section id="consultation" style={{ padding: '0 0 clamp(48px, 6vw, 80px)', background: 'var(--bg-base)' }}>
       <div className="container">
-        <div style={{
-          position: 'relative',
-          background: 'var(--bg-surface)',
-          border: '1px solid rgba(16,185,129,0.2)',
-          borderRadius: '20px',
-          padding: 'clamp(32px, 5vw, 52px)',
-          overflow: 'hidden',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-          textAlign: 'center',
-        }}>
-          {/* Glow orbs */}
-          <div aria-hidden style={{
-            position: 'absolute', top: '-60px', left: '50%', transform: 'translateX(-50%)',
-            width: '300px', height: '200px',
-            background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)',
-            filter: 'blur(30px)', pointerEvents: 'none',
-          }} />
+        <div style={{ position: 'relative' }}>
+          {/* MASKOT MENGINTIP (Di luar kotak agar tidak terpotong) */}
+          <img 
+            src="/mascot/ok.png" 
+            alt="FLaz.Dev Mascot"
+            style={{
+              position: 'absolute',
+              bottom: '0',
+              right: '0',
+              width: 'clamp(150px, 28vw, 220px)', /* Diperbesar agar sama besarnya */
+              height: 'auto',
+              zIndex: 2, /* Di atas card */
+              pointerEvents: 'none',
+              filter: 'drop-shadow(-5px 10px 15px rgba(0,0,0,0.5))',
+              transform: 'translate(10%, 15%)', /* Menggeser sedikit ke luar sudut */
+            }}
+          />
 
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{
+            position: 'relative',
+            background: 'var(--bg-surface)',
+            border: '1px solid rgba(16,185,129,0.2)',
+            borderRadius: '20px',
+            padding: 'clamp(32px, 5vw, 52px)',
+            overflow: 'hidden',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+            textAlign: 'center',
+            zIndex: 1,
+          }}>
+            {/* Glow orbs */}
+            <div aria-hidden style={{
+              position: 'absolute', top: '-60px', left: '50%', transform: 'translateX(-50%)',
+              width: '300px', height: '200px',
+              background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)',
+              filter: 'blur(30px)', pointerEvents: 'none',
+            }} />
             {/* Badge */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',

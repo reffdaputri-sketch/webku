@@ -63,24 +63,33 @@ export default async function AboutPage() {
           <div className="container">
             <div className="grid-2" style={{ gap: 'clamp(32px, 6vw, 64px)', alignItems: 'center' }}>
               
-              {/* Gambar/Visual Kiri */}
+              {/* Gambar/Visual Kiri (Maskot) */}
               <div style={{
                 position: 'relative',
-                aspectRatio: '4/3',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                border: '1px solid var(--border-color)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-                <img 
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" 
-                  alt="FLaz.Dev Team Coding"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
                 <div style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to top, rgba(13,15,22,0.8), transparent)',
+                  position: 'absolute',
+                  width: '80%', height: '80%',
+                  background: 'radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%)',
+                  filter: 'blur(40px)',
+                  zIndex: 0
                 }} />
+                <img 
+                  src="/mascot/laptop.png" 
+                  alt="FLaz.Dev Mascot Coding"
+                  style={{ 
+                    width: '100%', 
+                    maxWidth: '450px', 
+                    height: 'auto', 
+                    objectFit: 'contain',
+                    position: 'relative',
+                    zIndex: 1,
+                    filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.5))'
+                  }}
+                />
               </div>
 
               {/* Teks Kanan */}

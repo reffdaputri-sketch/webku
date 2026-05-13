@@ -49,18 +49,17 @@ export default function Footer({ settings }: { settings: ProfileSettings }) {
 
           {/* Brand Column */}
           <div style={{ gridColumn: 'span 1' }}>
-            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '18px', textDecoration: 'none' }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '9px',
-                background: 'linear-gradient(135deg, hsl(217, 91%, 60%), hsl(262, 83%, 68%))',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#fff', boxShadow: '0 4px 14px rgba(59, 130, 246, 0.3)',
-              }}>
-                <Terminal size={18} strokeWidth={2.5} />
-              </div>
-              <span style={{ fontWeight: 800, fontSize: '1.15rem', color: 'var(--text-main)' }}>
-                FLaz<span className="text-gradient">.Dev</span>
-              </span>
+            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '18px', textDecoration: 'none' }}>
+              <img 
+                src="/logo.png" 
+                alt="Flasdev Logo" 
+                style={{ 
+                  height: '36px', 
+                  width: 'auto', 
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 2px 6px rgba(59, 130, 246, 0.4)) brightness(1.2) contrast(1.1)' 
+                }} 
+              />
             </Link>
 
             <p style={{

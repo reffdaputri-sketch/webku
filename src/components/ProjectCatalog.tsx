@@ -28,21 +28,37 @@ export default function ProjectCatalog({ projects }: { projects: Project[] }) {
     <section id="projects" style={{ padding: 'clamp(56px, 8vw, 96px) 0', background: 'var(--bg-surface)' }}>
       <div className="container">
 
-        {/* Section Header */}
-        <div style={{ marginBottom: '32px' }}>
-          <span className="badge" style={{ marginBottom: '12px' }}>Portofolio Proyek</span>
-          <h2 style={{
-            fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
-            fontWeight: 800, letterSpacing: '-0.02em',
-            color: 'var(--text-main)', marginBottom: '10px',
-          }}>
-            Proyek yang Telah{' '}
-            <span className="text-gradient">Diselesaikan</span>
-          </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '580px', lineHeight: 1.7 }}>
-            Koleksi hasil karya terbaik: aplikasi mobile, portal web, dan desain UI yang
-            memenuhi standar industri digital tertinggi.
-          </p>
+        {/* Section Header & Mascot */}
+        <div style={{ 
+          display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', 
+          gap: '20px', marginBottom: '32px' 
+        }}>
+          <div style={{ flex: '1 1 400px' }}>
+            <span className="badge" style={{ marginBottom: '12px' }}>Portofolio Proyek</span>
+            <h2 style={{
+              fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+              fontWeight: 800, letterSpacing: '-0.02em',
+              color: 'var(--text-main)', marginBottom: '10px',
+            }}>
+              Proyek yang Telah{' '}
+              <span className="text-gradient">Diselesaikan</span>
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '580px', lineHeight: 1.7 }}>
+              Koleksi hasil karya terbaik: aplikasi mobile, portal web, dan desain UI yang
+              memenuhi standar industri digital tertinggi.
+            </p>
+          </div>
+
+          <div style={{ flexShrink: 0, display: 'flex', justifyContent: 'center', flex: '1 1 200px' }}>
+            <img 
+              src="/mascot/standing.png" 
+              alt="FLaz.Dev Mascot Thumbs Up" 
+              style={{ 
+                width: '100%', maxWidth: '160px', height: 'auto', 
+                filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.4))',
+              }} 
+            />
+          </div>
         </div>
 
         {/* Category Filter Tabs */}

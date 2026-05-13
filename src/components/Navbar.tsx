@@ -49,21 +49,17 @@ export default function Navbar() {
           height: '64px',
         }}>
           {/* ── Brand Logo ── */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <div style={{
-              width: '36px', height: '36px',
-              borderRadius: '9px',
-              background: 'linear-gradient(135deg, hsl(217, 91%, 60%), hsl(262, 83%, 68%))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: '#ffffff',
-              boxShadow: '0 4px 14px rgba(59, 130, 246, 0.35)',
-              flexShrink: 0,
-            }}>
-              <Terminal size={19} strokeWidth={2.5} />
-            </div>
-            <span style={{ fontWeight: 800, fontSize: '1.18rem', letterSpacing: '-0.5px', color: 'hsl(210, 40%, 96%)' }}>
-              FLaz<span className="text-gradient">.Dev</span>
-            </span>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img 
+              src="/logo.png" 
+              alt="Flasdev Logo" 
+              style={{ 
+                height: '32px', 
+                width: 'auto', 
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 2px 6px rgba(59, 130, 246, 0.4)) brightness(1.2) contrast(1.1)' 
+              }} 
+            />
           </Link>
 
           {/* ── Desktop Nav ── */}

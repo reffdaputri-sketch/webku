@@ -34,15 +34,32 @@ export default function ToolsSkills() {
     <section id="tools" style={{ padding: 'clamp(64px, 9vw, 100px) 0' }}>
       <div className="container">
 
-        {/* Section Header */}
-        <div className="section-header">
-          <span className="badge" style={{ marginBottom: '14px' }}>Tumpukan Teknologi</span>
-          <h2>
-            Alat &amp; <span className="text-gradient">Keahlian Teknis</span>
-          </h2>
-          <p>
-            Teknologi pilihan untuk membangun produk digital yang andal, skalabel, dan modern.
-          </p>
+        {/* Section Header & Mascot */}
+        <div style={{ 
+          display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', 
+          gap: '20px', marginBottom: '40px' 
+        }}>
+          <div className="section-header" style={{ marginBottom: 0, textAlign: 'left', flex: '1 1 300px' }}>
+            <span className="badge" style={{ marginBottom: '14px' }}>Tumpukan Teknologi</span>
+            <h2 style={{ textAlign: 'left' }}>
+              Alat &amp; <span className="text-gradient">Keahlian Teknis</span>
+            </h2>
+            <p style={{ textAlign: 'left', margin: '0' }}>
+              Teknologi pilihan untuk membangun produk digital yang andal, skalabel, dan modern.
+            </p>
+          </div>
+          
+          <div style={{ flexShrink: 0, display: 'flex', justifyContent: 'center', flex: '1 1 200px' }}>
+            <img 
+              src="/mascot/coding.png" 
+              alt="FLaz.Dev Mascot Coding" 
+              style={{ 
+                width: '100%', maxWidth: '200px', height: 'auto', 
+                filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.4))',
+                animation: 'float 5s ease-in-out infinite' 
+              }} 
+            />
+          </div>
         </div>
 
         {/* Skills Grid */}

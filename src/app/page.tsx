@@ -13,6 +13,7 @@ import ClientQuestionForm from '@/components/ClientQuestionForm';
 import PromoSlider from '@/components/PromoSlider';
 import Services from '@/components/Services';
 import ProjectCatalog from '@/components/ProjectCatalog';
+import Testimonials from '@/components/Testimonials';
 import NewsSection from '@/components/NewsSection';
 import ToolsSkills from '@/components/ToolsSkills';
 import Footer from '@/components/Footer';
@@ -64,6 +65,8 @@ export default async function Home() {
       <Services services={services} />
       
       <ProjectCatalog projects={projects} />
+      
+      <Testimonials />
       
       <ToolsSkills />
 
